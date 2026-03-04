@@ -12,11 +12,12 @@ end
 
 local url = "https://raw.githubusercontent.com/janhub1/scriptsurvivelava1/main/payload.xor"
 
-local Http = game:GetService("HttpService")
-local success, encrypted = pcall(Http.GetAsync, Http, url)
+local success, encrypted = pcall(function()
+    return game:HttpGet(url, true)
+end)
 
 if not success then
-    warn("Nepodařilo se stáhnout payload: " .. tostring(encrypted))
+    warn("HttpGet selhalo: " .. tostring(encrypted))
     return
 end
 
