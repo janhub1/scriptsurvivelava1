@@ -1,6 +1,6 @@
 -- Opravený loader – správný XOR pro tvůj C# obfuscátor
 
-local key = "aVysHSYBTqIuFaQW"   -- ← sem dej přesný klíč z C# (pokud byl random, spusť C# znovu a zkopíruj ho)
+local key = "9gMLGlzrZXb5vtrxSgn6DTGp"   -- ← sem dej přesný klíč z C# (pokud byl random, spusť C# znovu a zkopíruj ho)
 
 local function decrypt(data, key)
     local res = {}
